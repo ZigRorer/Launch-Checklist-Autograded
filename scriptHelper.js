@@ -7,22 +7,31 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     /*
                  <h2>Mission Destination</h2>
                  <ol>
-                     <li>Name: </li>
-                     <li>Diameter: </li>
+                     <li>Name: ${name}</li>
+                     <li>Diameter: ${diameter}</li>
                      <li>Star: ${star}</li>
-                     <li>Distance from Earth: </li>
-                     <li>Number of Moons: </li>
+                     <li>Distance from Earth: ${distance}</li>
+                     <li>Number of Moons: ${moons}</li>
                  </ol>
-                 <img src="">
+                 <img src="${imageUrl}">
     */
  }
  
  function validateInput(testInput) {
-    
+    if (testInput === "") {
+        return "Empty";
+    } else if (isNaN(testInput)) {
+        return "Not a Number"
+    } else {
+        return "Is a Number";
+    }
  }
  
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    
+    let pilotStatus = document.getElementById("pilotStatus");
+    let copilotStatus = document.getElementById("copilotStatus");
+    let fuelStatus = document.getElementById("fuelStatus");
+    let cargoStatus = document.getElementById("cargoStatus");
  }
  
  async function myFetch() {
