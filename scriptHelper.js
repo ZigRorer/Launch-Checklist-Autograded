@@ -47,7 +47,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         }
         
         list.style.visibility = `hidden`;
-        launchStatus.innerHTML = `Information needed for Launch`;
+        launchStatus.innerHTML = `Awaiting Information Before Launch`;
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
         copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
         fuelStatus.innerHTML = `Fuel level is high enough for launch`;
@@ -95,15 +95,18 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  async function myFetch() {
-     let planetsReturned;
+     let planetsReturned = await fetch();
  
-     planetsReturned = await fetch().then( function(response) {
+     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        return response.json()
          });
  
      return planetsReturned;
  }
  
  function pickPlanet(planets) {
+    let selectedPlanet = Math.floor(Math.random() * planets.length);
+    return planets[selectedPlanet];
  }
  
  module.exports.addDestinationInfo = addDestinationInfo;
