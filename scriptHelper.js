@@ -22,7 +22,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     if (testInput === "") {
         return "Empty";
     } else if (isNaN(testInput)) {
-        return "Not a Number"
+        return "Not a Number";
     } else {
         return "Is a Number";
     }
@@ -35,21 +35,13 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     let cargoStatus = document.getElementById("cargoStatus");
     let launchStatus = document.getElementById("launchStatus");
 
-        if (validateInput(pilot) === "Empty" ||
-            validateInput(copilot) === "Empty" ||
-            validateInput(fuelLevel) === "Empty" ||
-            validateInput(cargoLevel) === "Empty") {
-                alert("all fields are required!");
+        if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
+            alert("All fields are required!");
         } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
             alert("Pilot and Co-Pilot names should not be numbers!");
-        } else if (validateInput(fuelLevel) === "Not a number" || validateInput(cargoLevel) === "Not a Number") {
-            alert("Please enter Fuel Level and Cargo Mass as numbers.");
+        } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
+            alert("Please enter valid numbers for Fuel Level and Cargo Mass.");
         }
-        
-        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
-        copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-
-        let launchReadyStatus = true;
 
         if (fuelLevel < 10000) {
             list.style.visibility = `visible`;
