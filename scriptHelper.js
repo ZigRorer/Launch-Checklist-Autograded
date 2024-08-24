@@ -46,20 +46,18 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
             alert("Please enter Fuel Level and Cargo Mass as numbers.");
         }
         
-        list.style.visibility = `hidden`;
-        launchStatus.innerHTML = `Awaiting Information Before Launch`;
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
         copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-        fuelStatus.innerHTML = `Fuel level is high enough for launch`;
-        cargoStatus.innerHTML = `Cargo mass is low enough for launch`;
+
+        let launchReadyStatus = true;
 
         if (fuelLevel < 10000) {
             list.style.visibility = `visible`;
             pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
             copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-            fuelStatus.innerHTML = `Fuel level is too low for launch`;
-            cargoStatus.innerHTML = `Cargo mass is low enough for launch`;
-            launchStatus.innerHTML = `SHUTTLE NOT READY FOR LAUNCH`;
+            fuelStatus.innerHTML = `Fuel level too low for launch`;
+            cargoStatus.innerHTML = `Cargo mass low enough for launch`;
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
             launchStatus.style.color = `red`;
         }
 
@@ -67,9 +65,9 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
             list.style.visibility = `visible`;
             pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
             copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-            fuelStatus.innerHTML = `Fuel level is high enough for launch`;
-            cargoStatus.innerHTML = `Cargo mass is too high for launch`;
-            launchStatus.innerHTML = `SHUTTLE NOT READY FOR LAUNCH`;
+            fuelStatus.innerHTML = `Fuel level high enough for launch`;
+            cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
             launchStatus.style.color = `red`;
         }
 
@@ -77,9 +75,9 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
             list.style.visibility = `visible`;
             pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
             copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-            fuelStatus.innerHTML = `Fuel level is too low for launch`;
-            cargoStatus.innerHTML = `Cargo mass is too high for launch`;
-            launchStatus.innerHTML = `SHUTTLE NOT READY FOR LAUNCH`;
+            fuelStatus.innerHTML = `Fuel level too low for launch`;
+            cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
             launchStatus.style.color = `red`;
         }
 
@@ -87,17 +85,15 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
             list.style.visibility = `visible`;
             pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
             copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-            fuelStatus.innerHTML = `Fuel level is high enough for launch`;
-            cargoStatus.innerHTML = `Cargo mass is low enough for launch`;
-            launchStatus.innerHTML = `Shuttle is READY for Launch`;
+            fuelStatus.innerHTML = `Fuel level high enough for launch`;
+            cargoStatus.innerHTML = `Cargo mass low enough for launch`;
+            launchStatus.innerHTML = `Shuttle is Ready for Launch`;
             launchStatus.style.color = `green`;
         }
  }
  
  async function myFetch() {
-     let planetsReturned = await fetch();
- 
-     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+     let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         return response.json()
          });
  
