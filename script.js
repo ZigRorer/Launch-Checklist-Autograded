@@ -28,7 +28,7 @@ window.addEventListener("load", function() {
         let pickDistance = pick.distance;
         let pickImage = pick.image;
         let pickMoons = pick.moons;
-        addDestinationInfo(document, pickName, pickDiameter, pickStart, pickDistance, pickImage, pickMoons);
+        addDestinationInfo(document, pickName, pickDiameter, pickStart, pickDistance, pickMoons, pickImage);
     })
     
  });
